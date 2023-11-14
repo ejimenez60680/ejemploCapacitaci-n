@@ -1,0 +1,29 @@
+cantidadOcupado =0
+cine = [["vacio","vacio","vacio","vacio"],["vacio","vacio","vacio","vacio"],
+        ["vacio","vacio","vacio","vacio"],["vacio","vacio","vacio","vacio"]]
+
+#Funcion para mostrar un arreglo
+def mostrarCine(matriz):
+    print("Cine")
+    for fila in range(len(matriz)):
+        print("Fila",fila+1)
+        for columna in range(len(matriz[fila])):
+            print("Asiento ",columna+1,":",matriz[fila][columna],end=" ")
+        print("\n")
+
+
+mostrarCine(cine)
+
+while cantidadOcupado<16:
+    fila = int(input("Ingrese la fila (1-4):"))
+    asiento = int(input("Ingrese la asiento (1-4):"))
+    if fila > 4 or asiento>4:
+        print("El asiento digitado es incorrecto")
+    else:
+        if(cine[fila-1][asiento-1]=="vacio"):
+            nombre = input("Ingrese su nombre:")
+            cine[fila-1][asiento-1]= nombre
+            mostrarCine(cine)
+            cantidadOcupado += 1
+        else:
+            print("Ese número de asiento esta ocupado")
